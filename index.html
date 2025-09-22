@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Multi Bahasa Animasi</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #fceaea; color: #333; line-height: 1.6; }
+    .container { display: flex; flex-wrap: wrap; max-width: 1000px; margin: 20px auto; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .sidebar { background: #f9d5d5; flex: 1 1 300px; padding: 20px; text-align: center; }
+    .sidebar img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+    .sidebar h2 { font-size: 20px; font-weight: bold; }
+    .sidebar h2 span { color: #d45a75; }
+    .sidebar .title { font-size: 13px; color: #555; margin-bottom: 20px; }
+    .section { text-align: left; margin-bottom: 15px; }
+    .section h3 { color: #d45a75; margin-bottom: 8px; font-size: 15px; border-bottom: 2px solid #d45a75; display: inline-block; padding-bottom: 2px; }
+    .section ul { list-style: none; margin-top: 8px; }
+    .section ul li { margin: 4px 0; font-size: 13px; }
+    .content { padding: 20px; flex: 2 1 500px; }
+    .content h3 { color: #d45a75; margin-bottom: 8px; font-size: 16px; border-bottom: 2px solid #d45a75; display: inline-block; padding-bottom: 2px; }
+    .item { margin-bottom: 15px; }
+    .item h4 { font-size: 14px; color: #333; margin-bottom: 4px; }
+    .item p { font-size: 13px; color: #555; }
+    .chart-container { width: 100%; max-width: 280px; margin: 15px auto; }
+    .language-select { text-align: right; padding: 10px; background: #fceaea; }
+    .language-select select { padding: 5px; font-size: 13px; }
+
+    /* Animasi Fade */
+    .fade {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .fade.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Pilihan Bahasa -->
+  <div class="language-select">
+    <label for="language">🌐 Bahasa: </label>
+    <select id="language" onchange="changeLanguage(this.value)">
+      <option value="id">Indonesia</option>
+      <option value="en">English</option>
+      <option value="jw">Jawa</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+
+  <div class="container fade show" id="content">
+    <!-- Bagian Kiri -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="foto1.png" alt="Foto Profil">
+        <h2 id="title-identitas">syifa maulida<span> azzahroh</span></h2>
+        <p class="title" id="subtitle">Contoh Biodata Singkat</p>
+      </div>
+
+      <div class="section">
+        <h3 id="identitas-heading">Identitas diri</h3>
+        <p id="nama">Nama:syifa maulida azzahroh</p>
+        <p id="ttl">TTL: pekalongan 7 februari 2008</p>
+        <p id="alamat">Alamat: desa bebel,wonokerto,kabupaten pekalongan</p>
+        <p id="email">Email:cipa@gmail.com</p>
+        <p id="telp">Telp:+6285965547xxx</p>
+      </div>
+
+      <div class="section">
+        <h3 id="skills-heading">Keterampilan & Minat</h3>
+        <ul>
+          <li id="skill1">memasak</li>
+          <li id="skill2">menyapu</li>
+          <li id="skill3">Membaca Buku</li>
+        </ul>
+      </div>
+    
+          <div class="section">
+        <h3 id="skills-heading">Riwayat hidup/pengalaman</h3>
+        <ul>
+          <li id="skill1">Mengikuti panitia lomba 17 agustus</li>
+        </ul>
+      </div>
+    
+              <div class="section">
+        <h3 id="skills-heading">Motivasi</h3>
+        <ul>
+          <li id="skill1">jangan pernah menyerah ketika kamu masih mampu berusaha lagi</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Bagian Kanan -->
+    <main class="content">
+      <section>
+        <h3 id="edu-heading">Riwayat Pendidikan</h3>
+        <div class="item">
+          <h4 id="edu1">SD</h4>
+          <p id="edu1-desc">SD N 01 bebel (2015-2021)</p>
+        </div>
+        <div class="item">
+          <h4 id="edu2">SMP</h4>
+          <p id="edu2-desc">SMP N 03 wonokerto (2021-2024)</p>
+        </div>
+        <div class="item">
+          <h4 id="edu3">SMK</h4>
+          <p id="edu3-desc">SMK MAARIF NU Tirto(2024-sekarang)</p>
+        </div>
+      </section>
+
+      <section>
+        <h3 id="cita-heading">Cita-Cita</h3>
+        <div class="item">
+          <p id="cita-text">Bos muda</p>
+        </div>
+      </section>
+
+      <section>
+        <h3 id="harapan-heading">Harapan Masa Depan</h3>
+        <div class="item">
+          <p id="harapan-text">menjadi wanita berkarir yang sangat sukses</p>
+        </div>
+      
+      <section>
+        <h3 id="harapan-heading">Perjalanan hidup</h3>
+        <div class="item">
+          <p id="harapan-text">Sejak kecil saya tinggal di pekalongan, Bersekolah di SDN 01 bebel kemudian melanjutkan pendidikan di SMPN 03 Wonokerto dan saat ini bersekolah di SMK Maarif NU Tirto</p>
+        </div>
+      </section>
+
+      <!-- Diagram Statistik -->
+      <section>
+        <h3 id="statistik-heading">Statistik Keterampilan</h3>
+        <div class="chart-container"><canvas id="pieChart"></canvas></div>
+        <div class="chart-container"><canvas id="barChart"></canvas></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Script Chart.js + Multi Bahasa -->
+  <script>
+    const translations = {
+      id: { titleIdentitas: "syifa maulida azzahroh", subtitle: "Contoh Biodata Singkat",
+        identitasHeading: "Identitas Diri", skillsHeading: "Keterampilan & Minat",
+        eduHeading: "Riwayat Pendidikan", citaHeading: "Cita-Cita", harapanHeading: "Harapan Masa Depan",
+        statistikHeading: "Statistik Keterampilan",
+        nama: "Nama:syifa maulida azzahroh", ttl: "TTL:pekalongan,7 februari 2008",
+        alamat: "Alamat: Bebel Village, Wonokerto District, Pekalongan Regency", email: "Email: cipa@gmail.com", telp: "Telp:+6285965547xxx",
+        skill1: "Memasak", skill2: "menyapu", skill3: "Membaca Buku",
+        edu1: "SD", edu1Desc: "SD N 01 bebel (2015-2021)",
+        edu2: "SMP", edu2Desc: "SMP N 03 wonokerto (2021-2024)",
+        edu3: "SMK", edu3Desc: "SMK MAARIF NU Tirto(2024-sekarang)",
+        citaText: "Bos muda",
+        harapanText: "menjadi wanita berkarir yang sangat sukses"
+      },
+      en: { titleIdentitas: "Syifa Maulida Azzahroh",
+    subtitle: "Short Biodata Example",
+    identitasHeading: "Personal Identity",
+    skillsHeading: "Skills & Interests",
+    eduHeading: "Education",
+    citaHeading: "Dreams",
+    harapanHeading: "Future Hopes",
+    statistikHeading: "Skills Statistics",
+    nama: "Name: Syifa Maulida Azzahroh",
+    ttl: "Born: Pekalongan, February 7, 2008",
+    alamat: "Address: Bebel Village, Wonokerto District, Pekalongan Regency",
+    email: "Email: syipamaulidaazzahroh@gmail.com",
+    telp: "Phone: +62859-6554-7056",
+    skill1: "Cooking",
+    skill2: "Sweeping",
+    skill3: "Reading Books",
+    edu1: "Elementary School",
+    edu1Desc: "SDN 01 Bebel (2015 - 2021)",
+    edu2: "Junior High School",
+    edu2Desc: "SMPN 03 Wonokerto (2021 - 2024)",
+    edu3: "Vocational High School",
+    edu3Desc: "SMK Maarif NU Tirto (2024 - present)",
+    citaText: "Young entrepreneur",
+    harapanText: "To become a highly successful career woman"
+      },
+      jw: { titleIdentitas: "Syifa Maulida Azzahroh",
+    subtitle: "Tuladhané Biodata Ringkes",
+    identitasHeading: "Jati Diri",
+    skillsHeading: "Kaprigelan & Kapentingan",
+    eduHeading: "Riwayat Sinau",
+    citaHeading: "Cita-Cita",
+    harapanHeading: "Pangajab Mangsa Ngarep",
+    statistikHeading: "Statistik Kaprigelan",
+    nama: "Jeneng: Syifa Maulida Azzahroh",
+    ttl: "Papan lan Tanggal Lair: Pekalongan, 7 Februari 2008",
+    alamat: "Alamat: Desa Bebel, Kec. Wonokerto, Kab. Pekalongan",
+    email: "Surél: syipamaulidaazzahroh@gmail.com",
+    telp: "Telpon: +62859-6554-7056",
+    skill1: "Masak",
+    skill2: "Nyapu",
+    skill3: "Maca Buku",
+    edu1: "SD",
+    edu1Desc: "SDN 01 Bebel (2015 - 2021)",
+    edu2: "SMP",
+    edu2Desc: "SMPN 03 Wonokerto (2021 - 2024)",
+    edu3: "SMK",
+    edu3Desc: "SMK Maarif NU Tirto (2024 - saiki)",
+    citaText: "Bos enom",
+    harapanText: "Dadi wanita karir sing sukses banget"
+      },
+      ar: { titleIdentitas: "سيفاء موليدة أزهروه",
+    subtitle: "مثال السيرة الذاتية المختصرة",
+    identitasHeading: "الهوية الشخصية",
+    skillsHeading: "المهارات والاهتمامات",
+    eduHeading: "التعليم",
+    citaHeading: "الأحلام",
+    harapanHeading: "الآمال المستقبلية",
+    statistikHeading: "إحصائيات المهارات",
+    nama: "الاسم: سيفاء موليدة أزهروه",
+    ttl: "الميلاد: بكالونجان، ٧ فبراير ٢٠٠٨",
+    alamat: "العنوان: قرية بيبيل، منطقة وونوكيرتو، مقاطعة بكالونجان",
+    email: "البريد الإلكتروني: syipamaulidaazzahroh@gmail.com",
+    telp: "الهاتف: +٦٢٨٥٩-٦٥٥٤-٧٠٥٦",
+    skill1: "الطبخ",
+    skill2: "كنس",
+    skill3: "قراءة الكتب",
+    edu1: "المدرسة الابتدائية",
+    edu1Desc: "SDN 01 Bebel (٢٠١٥ - ٢٠٢١)",
+    edu2: "المدرسة المتوسطة",
+    edu2Desc: "SMPN 03 Wonokerto (٢٠٢١ - ٢٠٢٤)",
+    edu3: "المدرسة الثانوية المهنية",
+    edu3Desc: "SMK Maarif NU Tirto (٢٠٢٤ - الآن)",
+    citaText: "رائدة أعمال شابة",
+    harapanText: "أن تصبح امرأة عاملة ناجحة للغاية"      }
+    };
+
+    function changeLanguage(lang) {
+      const t = translations[lang];
+      const content = document.getElementById("content");
+
+      // fade out
+      content.classList.remove("show");
+
+      setTimeout(() => {
+        for (const key in t) {
+          const el = document.getElementById(key.replace(/([A-Z])/g, "-$1").toLowerCase());
+          if (el) el.innerText = t[key];
+        }
+        // fade in
+        content.classList.add("show");
+      }, 500);
+    }
+
+    new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Menonton film', 'memasak', 'membaca buku', 'musik'],
+        datasets: [{ data: [30, 30, 20, 20], backgroundColor: ['#ff6384','#36a2eb','#ffce56','#4bc0c0','#9966ff'] }]
+      }
+    });
+
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Menonton film', 'memasak', 'membaca buku', 'musik'],
+        datasets: [{ label: 'Kemampuan (%)', data: [80, 90, 70, 60], backgroundColor: '#d45a75' }]
+      },
+      options: { scales: { y: { beginAtZero: true, max: 100 } } }
+    });
+  </script>
+</body>
+</html>
